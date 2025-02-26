@@ -6,7 +6,7 @@ tags:
     - Network
     - Red Team
 date: "2023-03-03"
-thumbnail: "/assets/img/thumbnail/vlan.gif"
+thumbnail: "/assets/img/thumbnail/VLAN.gif"
 ---
 
 # About the blog
