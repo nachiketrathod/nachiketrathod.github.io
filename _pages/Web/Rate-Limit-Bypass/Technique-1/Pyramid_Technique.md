@@ -73,7 +73,7 @@ After trying **known methods**, we attempted to understand how the rate limiting
  *  Upon completion of the attack, observe that the application threw an `error message` after multiple incorrect attempts, indicating the **presence of proper rate limiting**
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/1.png" alt="F1" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/1.png" alt="F1" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 1. The application has implemented a request rate limit.</figcaption>
 </figure>
 
@@ -82,7 +82,7 @@ After trying **known methods**, we attempted to understand how the rate limiting
 * Despite entering the **`correct password`**, the error still persists.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/2.png" alt="F2" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/2.png" alt="F2" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 2. Observe the response with valid passowrd</figcaption>
 </figure>
 
@@ -91,7 +91,7 @@ After trying **known methods**, we attempted to understand how the rate limiting
 * Surprisingly, this **bypassed the rate-limiting** and allowed logging into the application using the valid password even after `numerous incorrect password` attempts.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/3.png" alt="F3" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/3.png" alt="F3" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 3. observe the success response(Redirection).</figcaption>
 </figure>
 
@@ -101,7 +101,7 @@ After trying **known methods**, we attempted to understand how the rate limiting
 * Unfortunately, `adding` the command character **`'%20' didn't work during the brute-force`** attack.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/4.png" alt="F4" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/4.png" alt="F4" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 4. Observe the error message again.</figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ After trying **known methods**, we attempted to understand how the rate limiting
 * Upon attempting a brute force attack, repeat **`Step-2`** and observe the same error message.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/5.png" alt="F5" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/5.png" alt="F5" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 5. Observe the same error message.</figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ After trying **known methods**, we attempted to understand how the rate limiting
 * Choose the Attack-type: **`Pitchfork`**.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/6.png" alt="F6" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/6.png" alt="F6" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 6. Choose the attack type and payload positions.</figcaption>
 </figure>
 
@@ -141,7 +141,7 @@ for i in range(1, 181):
 * Utilize the generated payloads at **`position one`**, which corresponds to the `username parameter`.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/7.png" alt="F7" style="border:1px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/7.png" alt="F7" style="border:1px solid purple">
 <figcaption style="color: red;">Fig 7. Add the output as payloads.</figcaption>
 </figure>
 
@@ -149,7 +149,7 @@ for i in range(1, 181):
 * Observe the `last request` after completing the attack, where **`'%20' was appended`** 180 times to the username parameter.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/8.png" alt="F8" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/8.png" alt="F8" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 8. observe the  heighted request.</figcaption>
 </figure>
 
@@ -158,7 +158,7 @@ for i in range(1, 181):
 * Allowing the application to find a **`valid credentials`** after numerous unsuccessful password attempts.
 
 <figure  style="text-align: center;">
-<img src="/assets/blogs/RateLimit/9.png" alt="F10" style="border:2px solid purple">
+<img src="/assets/blogs/RateLimit/Technique-1/9.png" alt="F10" style="border:2px solid purple">
 <figcaption style="color: red;">Fig 9. Observe the success response</figcaption>
 </figure>
 
