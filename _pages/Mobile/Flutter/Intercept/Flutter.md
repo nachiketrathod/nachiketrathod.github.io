@@ -8,7 +8,7 @@ tags:
     - Frida
     - Proxydroid
 date: "2021-06-23"
-thumbnail: "/assets/img/thumbnail/flutter.png"
+thumbnail: "/assets/img/thumbnail/Flutter.png"
 ---
 
 # About the blog
