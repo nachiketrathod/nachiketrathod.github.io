@@ -94,8 +94,11 @@ If connection warming doesn’t work, intentionally flooding the server with dum
 ## The Attack: 🪓
 <hr>
 
-<h3 align="center"><mark>🔭 The Manual Approach</mark></h3>
-
+<h3 align="center">
+  <span style="color: #ff7043;">
+    🔭 The Manual Approach
+  </span>
+</h3>
 **Step-1:** Intercept the application's `login` request and redirect it to the intruder, then send the request and observe the normal **request** and its **response** using valid `credentials`.
 
 <style>
@@ -286,8 +289,8 @@ If connection warming doesn’t work, intentionally flooding the server with dum
 <hr>
 
 <h3 align="center">
-  <span style="color: #7e57c2;">
-    🔭 The Automated Approach using Turbo Intruder
+  <span style="color: #ff7043;">
+    🔭 The Automated Approach 👉 Turbo Intruder
   </span>
 </h3>
 
@@ -319,7 +322,8 @@ def queueRequests(target, wordlists):
 def handleResponse(req, interesting):
     table.add(req)
 ```
-## OR
+
+### ⌛ Script 👉 Multiple Gates 
 ```
 def queueRequests(target, wordlists):
     # Use HTTP/2 for a single-packet attack
@@ -348,6 +352,7 @@ def queueRequests(target, wordlists):
 def handleResponse(req, interesting):
     table.add(req)
 ```
+
 🔹This approach targets systems vulnerable to **`TOCTOU (Time-of-Check to Time-of-Use)`** flaws, where concurrent requests may result in a successful login even if **traditional defenses** are in place. When one of the synchronized requests contains valid credentials, the **race condition** may allow `unauthorized access` before the system processes invalid attempts. This technique is particularly effective against applications that do not implement proper `concurrency control` during authentication checks.
 
 
