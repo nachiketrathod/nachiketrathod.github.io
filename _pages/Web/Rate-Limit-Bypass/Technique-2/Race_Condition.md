@@ -138,7 +138,7 @@ If connection warming doesn’t work, intentionally flooding the server with dum
        style="border: 2px solid purple; width: 100%; max-width: none; height: auto;
               border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.4); image-rendering: auto;">
   <figcaption style="color: red;">Fig 2: Observe the remaining attempts.</figcaption>
-</figure>
+</figure><br>
 
 **Step-3:** Navigate to the **third** request in **`Intruder`** and examine the response to check the remaining attempts.
 
