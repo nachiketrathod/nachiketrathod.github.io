@@ -8,7 +8,7 @@ date: "2023-11-07"
 thumbnail: "/assets/img/thumbnail/ratelimit.gif"
 ---
 
-# About the bog
+# About the blog
 ---
 * Author: [Suresh Budarapu](https://www.linkedin.com/in/sureshbudarapu/)
 * Genre: `Web Application`
