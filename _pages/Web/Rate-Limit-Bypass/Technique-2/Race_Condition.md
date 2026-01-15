@@ -9,7 +9,7 @@ date: "2025-04-16"
 thumbnail: "/assets/img/thumbnail/tron.gif"
 ---
 
-# About the bog
+# About the blog
 ---
 * Author: [Nachiket Rathod](https://www.linkedin.com/in/nachiketrathod/)
 * Genre: `Web Application`
